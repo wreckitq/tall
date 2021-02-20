@@ -1,6 +1,5 @@
 # Laravel TALL Preset with Windmill Dashboard
 
-[![CI Status](https://github.com/wreckitq/tall-windmill/workflows/Run%20Tests/badge.svg)](https://github.com/wreckitq/tall-windmill/actions)
 [![Total Downloads](https://poser.pugx.org/wreckitq/tall-windmill/d/total.svg)](https://packagist.org/packages/wreckitq/tall-windmill)
 
 A front-end preset for Laravel to scaffold an application using the [TALL stack](https://tallstack.dev), jumpstarting your application's development.
