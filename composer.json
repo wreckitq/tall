@@ -1,6 +1,6 @@
 {
-    "name": "laravel-frontend-presets/tall",
-    "description": "TALL preset for Laravel.",
+    "name": "wreckitq/tall-windmill",
+    "description": "TALL preset for Laravel with Windmill Dashboard.",
     "keywords": [
         "alpine",
         "alpinejs",
@@ -10,7 +10,8 @@
         "tall",
         "laravel",
         "livewire",
-        "preset"
+        "preset",
+        "windmill"
     ],
     "license": "MIT",
     "support": {
@@ -29,6 +30,10 @@
         {
             "name": "Ryan Chandler",
             "email": "support@ryangjchandler.co.uk"
+        },
+        {
+            "name": "Qisthi Ramadhani",
+            "email": "realramageek@gmail.com"
         }
     ],
     "require": {
