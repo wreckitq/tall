@@ -1,7 +1,7 @@
-# Laravel TALL Preset
+# Laravel TALL Preset with Windmill Dashboard
 
-[![CI Status](https://github.com/laravel-frontend-presets/tall/workflows/Run%20Tests/badge.svg)](https://github.com/laravel-frontend-presets/tall/actions)
-[![Total Downloads](https://poser.pugx.org/laravel-frontend-presets/tall/d/total.svg)](https://packagist.org/packages/laravel-frontend-presets/tall)
+[![CI Status](https://github.com/wreckitq/tall-windmill/workflows/Run%20Tests/badge.svg)](https://github.com/wreckitq/tall-windmill/actions)
+[![Total Downloads](https://poser.pugx.org/wreckitq/tall-windmill/d/total.svg)](https://packagist.org/packages/wreckitq/tall-windmill)
 
 A front-end preset for Laravel to scaffold an application using the [TALL stack](https://tallstack.dev), jumpstarting your application's development.
 
@@ -29,7 +29,7 @@ This preset is intended to be installed into a fresh Laravel application. Follow
 
 Then simply run the following commands:
 ```bash
-composer require livewire/livewire laravel-frontend-presets/tall
+composer require livewire/livewire wreckitq/tall-windmill
 php artisan ui tall
 npm install
 npm run dev
@@ -40,7 +40,7 @@ npm run dev
 If you would like to install the preset and its auth scaffolding in a fresh Laravel application, make sure to use the `--auth` flag on the `ui` command:
 
 ```bash
-composer require livewire/livewire laravel-frontend-presets/tall
+composer require livewire/livewire wreckitq/tall-windmill
 php artisan ui tall --auth
 npm install
 npm run dev
