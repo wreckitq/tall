@@ -18,28 +18,42 @@ import 'alpinejs';
 // });
 
 window.initAlpine = function () {
-    function getThemeFromLocalStorage() {
+    function setItemToLocalStorage(name, value) {
+        window.localStorage.setItem(name, value)
+    }
+
+    function getItemFromLocalStorage(name, defaultValue) {
         // if user already changed the theme, use it
-        if (window.localStorage.getItem('dark')) {
-            return JSON.parse(window.localStorage.getItem('dark'))
+        if (window.localStorage.getItem(name)) {
+            return JSON.parse(window.localStorage.getItem(name))
         }
 
         // else return their preferences
-        return (
-            !!window.matchMedia &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches
-        )
+        return defaultValue
     }
 
-    function setThemeToLocalStorage(value) {
-        window.localStorage.setItem('dark', value)
+    function getThemeFromLocalStorage() {
+        let defaultValue = (
+            !!window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+        );
+
+        return getItemFromLocalStorage('dark', defaultValue)
+    }
+
+    const kitchenSink = document.querySelector('#kitchen-sink-menu');
+
+    if (kitchenSink && kitchenSink.dataset.isActive) {
+        setItemToLocalStorage('isKitchenSinkMenuOpen', true);
+    } else {
+        setItemToLocalStorage('isKitchenSinkMenuOpen', false);
     }
 
     return {
         dark: getThemeFromLocalStorage(),
         toggleTheme() {
             this.dark = !this.dark
-            setThemeToLocalStorage(this.dark)
+            setItemToLocalStorage('dark', this.dark)
         },
         isSideMenuOpen: false,
         toggleSideMenu() {
@@ -62,9 +76,10 @@ window.initAlpine = function () {
         closeProfileMenu() {
             this.isProfileMenuOpen = false
         },
-        isPagesMenuOpen: false,
-        togglePagesMenu() {
-            this.isPagesMenuOpen = !this.isPagesMenuOpen
+        isKitchenSinkMenuOpen: getItemFromLocalStorage('isKitchenSinkMenuOpen', false),
+        toggleKitchenSinkMenu() {
+            this.isKitchenSinkMenuOpen = !this.isKitchenSinkMenuOpen
+            setItemToLocalStorage('isKitchenSinkMenuOpen', this.isKitchenSinkMenuOpen)
         },
         // Modal
         isModalOpen: false,

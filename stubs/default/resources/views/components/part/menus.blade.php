@@ -5,7 +5,7 @@
         </x-slot>
     </x-part.menu-item>
 
-    <x-part.menu-item name="Forms" url="#">
+    {{-- <x-part.menu-item name="Forms" url="#">
         <x-slot name="icon">
             <x-icons.outline.clipboard-list class="w-5 h-5" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"/>
         </x-slot>
@@ -39,47 +39,27 @@
         <x-slot name="icon">
             <x-icons.outline.menu class="w-5 h-5" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"/>
         </x-slot>
-    </x-part.menu-item>
+    </x-part.menu-item> --}}
 
-    {{--
-        <!-- Menu with 2 level -->
-        <li class="relative px-6 py-3">
+    <!-- Menu with 2 level -->
+    <li class="relative px-6 py-3" id="kitchen-sink-menu" data-is-active="{{ request()->is(
+        str_replace(config('app.url') . '/', '', 'kitchen-sink/*')
+    ) }}">
         <button
             class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-            @click="togglePagesMenu"
+            @click="toggleKitchenSinkMenu"
             aria-haspopup="true"
         >
             <span class="inline-flex items-center">
-                <svg
-                    class="w-5 h-5"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-                    ></path>
-                </svg>
-                <span class="ml-4">Pages</span>
+                <x-icons.outline.academic-cap class="w-5 h-5" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"/>
+                <span class="ml-4">Kitchen Sink</span>
             </span>
-            <svg
-                class="w-4 h-4"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-            >
-                <path
-                    fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                ></path>
-            </svg>
+
+            <x-icons.outline.chevron-left class="w-4 h-4" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" x-show="!isKitchenSinkMenuOpen" x-cloak/>
+            <x-icons.outline.chevron-down class="w-4 h-4" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" x-show="isKitchenSinkMenuOpen" x-cloak/>
         </button>
-        <template x-if="isPagesMenuOpen">
+
+        <template x-if="isKitchenSinkMenuOpen">
             <ul
                 x-transition:enter="transition-all ease-in-out duration-300"
                 x-transition:enter-start="opacity-25 max-h-0"
@@ -91,35 +71,40 @@
                 aria-label="submenu"
             >
                 <li
-                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 {{ request()->is(
+                        str_replace(config('app.url') . '/', '', 'kitchen-sink/forms')
+                    ) ? 'text-gray-800 dark:text-gray-100' : '' }}"
                 >
-                    <a class="w-full" href="./login.html">Login</a>
+                    <a class="w-full" href="{{ route('kitchen-sink.forms') }}">Forms</a>
                 </li>
                 <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 >
-                    <a class="w-full" href="./create-account.html">
-                        Create account
-                    </a>
+                    <a class="w-full" href="#">Cards</a>
                 </li>
                 <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 >
-                    <a class="w-full" href="./forgot-password.html">
-                        Forgot password
-                    </a>
+                    <a class="w-full" href="#">Charts</a>
                 </li>
                 <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 >
-                    <a class="w-full" href="./404.html">404</a>
+                    <a class="w-full" href="#">Buttons</a>
                 </li>
                 <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 >
-                    <a class="w-full" href="./blank.html">Blank</a>
+                    <a class="w-full" href="#">Modals</a>
+                </li>
+                <li
+                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 {{ request()->is(
+                        str_replace(config('app.url') . '/', '', 'kitchen-sink/tables')
+                    ) ? 'text-gray-800 dark:text-gray-100' : '' }}"
+                >
+                    <a class="w-full" href="{{ route('kitchen-sink.tables') }}">Tables</a>
                 </li>
             </ul>
         </template>
-    </li> --}}
+    </li>
 </ul>
