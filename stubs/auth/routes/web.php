@@ -8,6 +8,12 @@ use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
+use App\Http\Livewire\KitchenSink\Buttons;
+use App\Http\Livewire\KitchenSink\Cards;
+use App\Http\Livewire\KitchenSink\Charts;
+use App\Http\Livewire\KitchenSink\Forms;
+use App\Http\Livewire\KitchenSink\Modals;
+use App\Http\Livewire\KitchenSink\Tables;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,4 +59,13 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', LogoutController::class)
         ->name('logout');
+
+    Route::prefix('kitchen-sink')->name('kitchen-sink.')->group(function () {
+        Route::get('forms', Forms::class)->name('forms');
+        Route::get('tables', Tables::class)->name('tables');
+        Route::get('cards', Cards::class)->name('cards');
+        Route::get('charts', Charts::class)->name('charts');
+        Route::get('buttons', Buttons::class)->name('buttons');
+        Route::get('modals', Modals::class)->name('modals');
+    });
 });
