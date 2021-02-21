@@ -4,12 +4,12 @@ namespace App\Http\Livewire\KitchenSink;
 
 use Livewire\Component;
 
-class Forms extends Component
+class Charts extends Component
 {
-    public $title = 'Forms';
+    public $title = 'Charts';
 
     public function render()
     {
-        return view('livewire.kitchen-sink.forms');
+        return view('livewire.kitchen-sink.charts');
     }
 }

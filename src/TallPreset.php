@@ -14,6 +14,7 @@ class TallPreset extends Preset
         '@tailwindcss/typography' => '^0.3',
         '@tailwindcss/ui' => '0.7.2',
         'alpinejs' => '^2.8',
+        'chart.js' => '^2.9.4',
         'laravel-mix-tailwind' => '^0.1',
         'resolve-url-loader' => '^3.1',
         'sass' => '^1.32',

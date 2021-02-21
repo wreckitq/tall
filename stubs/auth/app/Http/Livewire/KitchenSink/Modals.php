@@ -4,12 +4,12 @@ namespace App\Http\Livewire\KitchenSink;
 
 use Livewire\Component;
 
-class Forms extends Component
+class Modals extends Component
 {
-    public $title = 'Forms';
+    public $title = 'Modals';
 
     public function render()
     {
-        return view('livewire.kitchen-sink.forms');
+        return view('livewire.kitchen-sink.modals');
     }
 }
